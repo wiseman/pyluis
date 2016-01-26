@@ -1,4 +1,8 @@
-"""Interface to Microsoft's LUIS language understanding system."""
+"""Interface to Microsoft's LUIS language understanding system.
+
+John Wiseman
+jjwiseman@gmail.com
+"""
 
 import collections
 import logging
