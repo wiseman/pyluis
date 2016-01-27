@@ -1,6 +1,17 @@
 import requests
+import sys
 
 import luis
+
+
+if sys.version < '3':
+    import codecs
+
+    def u(x):
+        return codecs.unicode_escape_decode(x)[0]
+else:
+    def u(x):
+        return x
 
 
 class MockResponse(object):
@@ -30,7 +41,7 @@ def test_analyze():
             return MockResponse(resp_json, url)
         requests.get = mock_get
 
-        resp_json = {u'query': None, u'intents': [], u'entities': []}
+        resp_json = {u('query'): None, u('intents'): [], u('entities'): []}
         l = luis.Luis(url='http://null/?x=1&q=')
         r = l.analyze('')
 
@@ -41,16 +52,19 @@ def test_analyze():
         assert r.best_intent() is None
 
         resp_json = {
-            u'query': u'set an alarm for tuesday',
-            u'intents': [{u'intent': u'builtin.intent.alarm.set_alarm'}],
-            u'entities': [{
-                u'resolution': {
-                    u'date': u'XXXX-WXX-2',
-                    u'resolution_type': u'builtin.datetime.date'
+            u('query'): u('set an alarm for tuesday'),
+            u('intents'): [{
+                u('intent'): u('builtin.intent.alarm.set_alarm')}],
+            u('entities'): [{
+                u('resolution'): {
+                    u('date'): u('XXXX-WXX-2'),
+                    u('resolution_type'): u('builtin.datetime.date')
                 },
-                u'type': u'builtin.alarm.start_date',
-                u'entity': u'tuesday'
-            }]}
+                u('type'): u('builtin.alarm.start_date'),
+                u('entity'): u('tuesday')
+            }
+            ]
+        }
         l = luis.Luis(url='http://null/?x=1')
         r = l.analyze('set an alarm for tuesday')
 
