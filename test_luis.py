@@ -73,5 +73,7 @@ def test_analyze():
         assert (r.intents[0].intent ==
                 'builtin.intent.alarm.set_alarm')
         assert r.intents[0].score is None
+        assert (r.best_intent().intent ==
+                'builtin.intent.alarm.set_alarm')
     finally:
         requests.get = old_get
