@@ -46,7 +46,9 @@ setup(
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Build Tools',
+        'Topic :: Scientific/Engineering :: Artificial Intelligence',
+        'Topic :: Scientific/Engineering :: Information Analysis',
+        'Topic :: Scientific/Engineering :: Human Machine Interfaces',
 
         # Pick your license as you wish (should match "license" above)
         'License :: OSI Approved :: MIT License',
@@ -64,7 +66,7 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='nlp naturallanguage text classification development',
+    keywords='nlp nlu naturallanguage text classification development',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
