@@ -6,9 +6,11 @@ jjwiseman@gmail.com
 
 import collections
 import logging
+import pkg_resources
 
 import requests
 
+__version__ = pkg_resources.get_distribution('luis').version
 logger = logging.getLogger(__name__)
 
 
