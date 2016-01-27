@@ -14,6 +14,10 @@ __version__ = pkg_resources.get_distribution('luis').version
 logger = logging.getLogger(__name__)
 
 
+class Error(Exception):
+    pass
+
+
 class _LuisData():
     def __str__(self):
         classname = self.__class__.__name__
@@ -81,6 +85,8 @@ class Luis(object):
     """An interface to a LUIS app (webservice)."""
     def __init__(self, url=None):
         self._url = url
+        if not url:
+            raise Error('No url specified')
         # When you click "publish" on a LUIS app, the page gives you
         # back a URL that has an empty "&q=" param. Remove that if the
         # URL we're passed has it.

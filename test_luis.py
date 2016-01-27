@@ -2,6 +2,7 @@ import requests
 import sys
 
 import luis
+import pytest
 
 
 if sys.version < '3':
@@ -29,6 +30,11 @@ class MockResponse(object):
 resp_json = None
 req_url = None
 req_params = None
+
+
+def test_no_url_errors():
+    with pytest.raises(luis.Error):
+        l = luis.Luis()
 
 
 def test_analyze():
