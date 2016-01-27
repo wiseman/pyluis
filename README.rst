@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/wiseman/pyluis.svg?branch=master
+    :target: https://travis-ci.org/wiseman/pyluis
+
 pyluis
 ======
 
