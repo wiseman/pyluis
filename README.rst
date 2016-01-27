@@ -4,11 +4,11 @@ pyluis
 This is a Python interface to `Microsoft LUIS <https://luis.ai/>`
 (Language Understanding Intelligent Service).
 
-How to use
-----------
+How to use it
+-------------
 
-First you need to create and publish a LUIS application. Then you can
-use it to analyze text.::
+After you have created and published your LUIS application, you can
+use it to analyze text::
 
   >>> import luis
 
