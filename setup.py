@@ -21,7 +21,7 @@ setup(
     # Versions should comply with PEP440. For a discussion on
     # single-sourcing the version across setup.py and the project
     # code, see https://packaging.python.org/en/latest/single_source_version.html
-    version='1.0.0',
+    version='2.0.0',
 
     description='A Python interface to Microsoft LUIS.',
     long_description=long_description,
@@ -68,13 +68,7 @@ setup(
     # What does your project relate to?
     keywords='nlp nlu naturallanguage text classification development',
 
-    # You can just specify the packages manually here if your project is
-    # simple. Or you can use find_packages().
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
-
-    # Alternatively, if you want to distribute just a my_module.py, uncomment
-    # this:
-    #   py_modules=["my_module"],
+    py_modules=['luis'],
 
     # List run-time dependencies here.  These will be installed by pip when
     # your project is installed. For an analysis of "install_requires" vs pip's
