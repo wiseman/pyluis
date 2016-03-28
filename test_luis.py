@@ -19,6 +19,8 @@ class MockResponse(object):
     def __init__(self, json, url):
         self._json = json
         self.url = url
+        self.status_code = 200
+        self.text = self._json
 
     def json(self):
         return self._json
@@ -60,7 +62,9 @@ def test_analyze():
         resp_json = {
             u('query'): u('set an alarm for tuesday'),
             u('intents'): [{
-                u('intent'): u('builtin.intent.alarm.set_alarm')}],
+                u('intent'): u('builtin.intent.alarm.set_alarm'),
+                u('score'): 1.0
+            }],
             u('entities'): [{
                 u('resolution'): {
                     u('date'): u('XXXX-WXX-2'),
@@ -78,7 +82,7 @@ def test_analyze():
         assert req_params == {'q': 'set an alarm for tuesday'}
         assert (r.intents[0].intent ==
                 'builtin.intent.alarm.set_alarm')
-        assert r.intents[0].score is None
+        assert r.intents[0].score == 1.0
         assert (r.best_intent().intent ==
                 'builtin.intent.alarm.set_alarm')
     finally:
